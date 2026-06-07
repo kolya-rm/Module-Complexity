@@ -14,7 +14,7 @@
  * 
  * 1. The sections of code that contribute to the time complexity are 2 for loops
  * iterating through the input number arrays. To the space complexity contribute 2
- * variable that accumulate sum and product values.
+ * variables that accumulate sum and product values.
  * 
  * 2. Time Complexity:  O(n)
  *    Space Complexity: O(1)
