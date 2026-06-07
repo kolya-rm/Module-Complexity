@@ -25,11 +25,13 @@
  */
 export function hasPairWithSum(numbers, target) {
   const complementSet = new Set();
+
   for (const number of numbers) {
     complementSet.add(number)
     if (complementSet.has(target - number)) {
       return true;
     }
   }
+  
   return false;
 }
