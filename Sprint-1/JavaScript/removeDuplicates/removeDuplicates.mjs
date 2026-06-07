@@ -1,36 +1,27 @@
 /**
  * Remove duplicate values from a sequence, preserving the order of the first occurrence of each value.
  *
- * Time Complexity:
- * Space Complexity:
- * Optimal Time Complexity:
+ * 
+ * SOLUTION
+ * 
+ * 1. The function current realization includes nested loops. The external loop 
+ * iterate over the given list and has the time complexity O(n). The inner loop
+ * iterate over the list of unique items which in the worst case can includes all
+ * the items of the given array. So the time complexity of the function is O(n^2).
+ * The function creates new array to store uniq items so the space complexity is O(n).
+ * 
+ * 2. Time Complexity:  O(n^2)
+ *    Space Complexity: O(n)
+ * 
+ * 3. Since a set preserve order of items by adding we can use transformations
+ * from an array to a set and then from a set to an array. Each transformation
+ * has the time complexity O(n) so, the refactored function will have the time
+ * complexity O(n). Using the transformation through a set will require additional
+ * array, so the space complexity will remain at O(n).
+ * 
+ * 4. Optimal Time Complexity: O(n)
  *
  * @param {Array} inputSequence - Sequence to remove duplicates from
  * @returns {Array} New sequence with duplicates removed
  */
-export function removeDuplicates(inputSequence) {
-  const uniqueItems = [];
-
-  for (
-    let currentIndex = 0;
-    currentIndex < inputSequence.length;
-    currentIndex++
-  ) {
-    let isDuplicate = false;
-    for (
-      let compareIndex = 0;
-      compareIndex < uniqueItems.length;
-      compareIndex++
-    ) {
-      if (inputSequence[currentIndex] === uniqueItems[compareIndex]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-    if (!isDuplicate) {
-      uniqueItems.push(inputSequence[currentIndex]);
-    }
-  }
-
-  return uniqueItems;
-}
+export const removeDuplicates = (inputSequence) => [...new Set(inputSequence)];
